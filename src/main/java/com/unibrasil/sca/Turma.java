@@ -38,12 +38,6 @@ public class Turma {
             joinColumns = @JoinColumn(name = "turma_id"),
             inverseJoinColumns = @JoinColumn(name = "horario_id"))
     private Set<Horario> horarios;
-    
-    @ManyToMany
-    @JoinTable(name = "alunos_turmas",
-    		joinColumns = @JoinColumn(name = "id_turma"),
-    		inverseJoinColumns = @JoinColumn(name = "id_aluno"))
-    private Set<Aluno> alunos;
 
     public int getId() {
         return id;
@@ -92,13 +86,5 @@ public class Turma {
     public void setHorarios(Set<Horario> horarios) {
         this.horarios = horarios;
     }
-
-	public Set<Aluno> getAlunos() {
-		return alunos;
-	}
-
-	public void setAlunos(Set<Aluno> alunos) {
-		this.alunos = alunos;
-	}
 
 }
