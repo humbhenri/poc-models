@@ -3,9 +3,17 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.unibrasil.sca</groupId>
 	<artifactId>models</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>Models</name>
 	<description>Modelos da aplicação do Sistema de Controle Acadêmico da Unibrasil</description>
+
+	<scm>
+		<url>https://github.com/humbhenri/poc-models</url>
+		<connection>scm:git:git://github.com/humbhenri/poc-models.git</connection>
+		<developerConnection>scm:git:git@github.com:humbhenri/poc-models</developerConnection>
+		<tag>models-0.0.1</tag>
+	</scm>
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -21,12 +29,37 @@
 
 	<dependencies>
 		<dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-        </dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.1</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.shared</groupId>
+						<artifactId>maven-invoker</artifactId>
+						<version>2.2</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>bintray-humbhenri-poc-models</id>
+			<name>humbhenri-poc-models</name>
+			<url>https://api.bintray.com/maven/humbhenri/poc-models/poc-models/;publish=1</url>
+		</repository>
+	</distributionManagement>
 </project>
